@@ -1,0 +1,169 @@
+.logo {
+  margin-bottom: 6rem;
+  @include mobile {
+    margin: 5rem 0;
+  }
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  position: relative;
+  & > input {
+    background-color: $color-very-light-grayish-cyan;
+    border: none;
+    padding: 0.5rem 2rem;
+    border-radius: 0.3rem;
+    font-size: 2.4rem;
+    font-family: inherit;
+    color: $color-very-dark-cyan;
+    text-align: right;
+    outline: 2px solid transparent;
+    transition: all 0.2s;
+
+    &:focus,
+    &:hover {
+      outline: 2px solid $color-primary;
+      cursor: pointer;
+    }
+
+    &::placeholder {
+      color: $color-grayish-cyan;
+    }
+  }
+
+  & > label {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.tip {
+  color: $color-white;
+  & > span {
+    color: $color-grayish-cyan;
+    display: block;
+    font-size: 1.4rem;
+  }
+}
+
+.tip-output {
+  font-size: 4rem;
+  color: $color-primary;
+}
+
+.output {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  @include mobile {
+    &:last-child {
+      margin-bottom: 4rem;
+    }
+  }
+}
+
+.reset {
+  border-radius: 0.3rem;
+  border: none;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  font-size: 2rem;
+  color: $color-very-dark-cyan;
+  background-color: $color-primary;
+  transition: all 0.2s;
+
+  &:active,
+  &:hover {
+    background-color: $color-light-grayish-cyan;
+    cursor: pointer;
+  }
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background-color: $color-primary;
+  &:active,
+  &:hover {
+    background-color: $color-primary !important;
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.btn {
+  padding: 0.4rem;
+  font-weight: 700;
+  font-size: 2.4rem;
+  font-family: "Space Mono", monospace;
+  color: #fff;
+  background-color: $color-very-dark-cyan;
+  border: none;
+  border-radius: 0.4rem;
+  transition: all 0.1s;
+
+  &:active,
+  &:hover {
+    color: $color-very-dark-cyan;
+    background-color: $color-light-grayish-cyan;
+    cursor: pointer;
+  }
+}
+
+.percentages {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1.3rem;
+  @include mobile {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.custom {
+  width: 100%;
+  text-align: right;
+  font-size: 2.4rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-family: inherit;
+  padding-right: 0.7rem;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: $color-very-light-grayish-cyan;
+  color: $color-very-dark-cyan;
+  outline: 2px solid transparent;
+  transition: all 0.2s;
+
+  &:focus,
+  &:hover {
+    outline: 2px solid $color-primary;
+    cursor: pointer;
+  }
+
+  &::placeholder {
+    color: $color-dark-grayish-cyan;
+  }
+}
+
+.selected {
+  background-color: $color-primary;
+  color: $color-very-dark-cyan;
+}
+
+.icon {
+  position: absolute;
+  top: 4.7rem;
+  left: 1.8rem;
+}
+
+.error {
+  outline: 2px solid $color-red !important;
+}

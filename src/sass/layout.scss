@@ -1,0 +1,44 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.tip-calculator {
+  background-color: $color-white;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  display: flex;
+  width: 60vw;
+
+  @include mobile {
+    flex-direction: column;
+    width: 100vw;
+    padding-bottom: 6rem;
+  }
+}
+
+.bill-input {
+  padding: 2rem;
+  background-color: $color-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 50%;
+}
+
+.bill-output {
+  padding: 4rem 3rem;
+  background-color: $color-very-dark-cyan;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 50%;
+
+  @include mobile {
+    padding-bottom: 3rem;
+  }
+}

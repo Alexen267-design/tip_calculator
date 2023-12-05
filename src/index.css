@@ -1,13 +1,233 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Color+Emoji&family=Space+Mono:wght@700&display=swap");
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
 }
+
+body {
+  box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.tip-calculator {
+  background-color: hsl(0, 0%, 100%);
+  padding: 2.5rem;
+  border-radius: 2rem;
+  display: flex;
+  width: 60vw;
+}
+@media screen and (max-width: 37.5rem) {
+  .tip-calculator {
+    flex-direction: column;
+    width: 100vw;
+    padding-bottom: 6rem;
+  }
+}
+
+.bill-input {
+  padding: 2rem;
+  background-color: hsl(0, 0%, 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 50%;
+}
+
+.bill-output {
+  padding: 4rem 3rem;
+  background-color: hsl(183, 100%, 15%);
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 50%;
+}
+@media screen and (max-width: 37.5rem) {
+  .bill-output {
+    padding-bottom: 3rem;
+  }
+}
+
+.logo {
+  margin-bottom: 6rem;
+}
+@media screen and (max-width: 37.5rem) {
+  .logo {
+    margin: 5rem 0;
+  }
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.input:not(:last-child) {
+  margin-bottom: 2rem;
+}
+.input > input {
+  background-color: hsl(189, 41%, 97%);
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 0.3rem;
+  font-size: 2.4rem;
+  font-family: inherit;
+  color: hsl(183, 100%, 15%);
+  text-align: right;
+  outline: 2px solid transparent;
+  transition: all 0.2s;
+}
+.input > input:focus, .input > input:hover {
+  outline: 2px solid hsl(172, 67%, 45%);
+  cursor: pointer;
+}
+.input > input::placeholder {
+  color: hsl(184, 14%, 56%);
+}
+.input > label {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tip {
+  color: hsl(0, 0%, 100%);
+}
+.tip > span {
+  color: hsl(184, 14%, 56%);
+  display: block;
+  font-size: 1.4rem;
+}
+
+.tip-output {
+  font-size: 4rem;
+  color: hsl(172, 67%, 45%);
+}
+
+.output {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+@media screen and (max-width: 37.5rem) {
+  .output:last-child {
+    margin-bottom: 4rem;
+  }
+}
+
+.reset {
+  border-radius: 0.3rem;
+  border: none;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  font-size: 2rem;
+  color: hsl(183, 100%, 15%);
+  background-color: hsl(172, 67%, 45%);
+  transition: all 0.2s;
+}
+.reset:active, .reset:hover {
+  background-color: hsl(185, 41%, 84%);
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background-color: hsl(172, 67%, 45%);
+}
+.disabled:active, .disabled:hover {
+  background-color: hsl(172, 67%, 45%) !important;
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.btn {
+  padding: 0.4rem;
+  font-weight: 700;
+  font-size: 2.4rem;
+  font-family: "Space Mono", monospace;
+  color: #fff;
+  background-color: hsl(183, 100%, 15%);
+  border: none;
+  border-radius: 0.4rem;
+  transition: all 0.1s;
+}
+.btn:active, .btn:hover {
+  color: hsl(183, 100%, 15%);
+  background-color: hsl(185, 41%, 84%);
+  cursor: pointer;
+}
+
+.percentages {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1.3rem;
+}
+@media screen and (max-width: 37.5rem) {
+  .percentages {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.custom {
+  width: 100%;
+  text-align: right;
+  font-size: 2.4rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-family: inherit;
+  padding-right: 0.7rem;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(183, 100%, 15%);
+  outline: 2px solid transparent;
+  transition: all 0.2s;
+}
+.custom:focus, .custom:hover {
+  outline: 2px solid hsl(172, 67%, 45%);
+  cursor: pointer;
+}
+.custom::placeholder {
+  color: hsl(186, 14%, 43%);
+}
+
+.selected {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+
+.icon {
+  position: absolute;
+  top: 4.7rem;
+  left: 1.8rem;
+}
+
+.error {
+  outline: 2px solid #ff1e00 !important;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: hsl(186, 14%, 43%);
+  background-color: hsl(185, 41%, 84%);
+}
+
+/*# sourceMappingURL=index.css.map */
