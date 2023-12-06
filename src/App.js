@@ -25,14 +25,17 @@ function TipCalculator() {
   const [bill, setBill] = useState("");
   const [numPerson, setNumPerson] = useState("");
   const [selected, setSelected] = useState(null);
+  const [custom, setCustom] = useState("");
   const tip = Number(bill) * (parseInt(selected) / 100);
   const tipPerPerson = tip / Number(numPerson);
   const totalPerPerson = (Number(bill) + tip) / Number(numPerson);
-  const disabled = bill || numPerson || selected;
+  const disabled = bill || numPerson || selected || custom;
+
   function handleReset(e) {
     setBill("");
     setNumPerson("");
     setSelected(null);
+    setCustom("");
   }
 
   console.log(`Tip per person: ${tipPerPerson}`);
@@ -47,6 +50,8 @@ function TipCalculator() {
         setNumPerson={setNumPerson}
         selected={selected}
         setSelected={setSelected}
+        custom={custom}
+        setCustom={setCustom}
       />
       <BillOutput
         tipPerPerson={tipPerPerson}
@@ -65,6 +70,8 @@ function BillInput({
   setNumPerson,
   selected,
   setSelected,
+  custom,
+  setCustom,
 }) {
   return (
     <div className="bill-input">
@@ -82,7 +89,12 @@ function BillInput({
       </div>
       <div className="input">
         <label>Select tip</label>
-        <TipPercentage selected={selected} onSelected={setSelected} />
+        <TipPercentage
+          selected={selected}
+          onSelected={setSelected}
+          custom={custom}
+          setCustom={setCustom}
+        />
       </div>
       <div className="input">
         <label>
@@ -111,7 +123,11 @@ function BillInput({
   );
 }
 
-function TipPercentage({ selected, onSelected }) {
+function TipPercentage({ selected, onSelected, custom, setCustom }) {
+  function handleCustom(e) {
+    onSelected(e.target.value);
+    setCustom(e.target.value);
+  }
   return (
     <div className="percentages">
       {percentages.map((btn) => (
@@ -128,7 +144,10 @@ function TipPercentage({ selected, onSelected }) {
         type="text"
         placeholder="custom"
         className="custom"
-        onChange={(e) => onSelected(e.target.value)}
+        value={custom}
+        onChange={(e) => {
+          handleCustom(e);
+        }}
       />
     </div>
   );
